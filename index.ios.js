@@ -10,7 +10,7 @@ var{
 
  var StopWatch = React.createClass({
 
-  getsInitialState: function() {
+  getInitialState: function() {
     return {
       timeElapsed: null,
       running: false,
