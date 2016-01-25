@@ -50,7 +50,7 @@ var{
     var style = this.state.running ? styles.stopButton : styles.startButton;
 
     return <TouchableHighlight
-    underlayColor="#00CC00"
+    underlayColor='#6AB9B8'
     onPress = {this.handleStartPress}
     style = {[styles.button,style]}
     >
@@ -65,7 +65,7 @@ var{
     var style = this.state.running ? styles.LapButton : styles.resetButton;
 
     return <TouchableHighlight
-    underlayColor="grey"
+    underlayColor='grey'
     onPress = {this.HandleLapPress}
     style={[styles.button,style]}
     >
@@ -150,17 +150,19 @@ var{
    button: {
     borderWidth: 1,
     borderColor: 'grey',
-    height: 100,
-    width: 100,
-    borderRadius: 50,
+    height: 40,
+    width: 110,
+    borderRadius: 4,
     justifyContent: 'center',
     alignItems: 'center',
    },
    startButton: {
-    borderColor: '#00CC00',
+    borderColor: '#54C7C3',
+    backgroundColor: '#54C7C3',
    },
    stopButton: {
-    borderColor: '#cc0000',
+    borderColor: '#CB5D54',
+    backgroundColor: 'CB5D54'
    },
    resetButton: {
     borderColor: '#cccccc',
