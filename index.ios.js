@@ -10,7 +10,7 @@ var{
 
  var StopWatch = React.createClass({
 
-  getInitialState: function() {
+  getsInitialState: function() {
     return {
       timeElapsed: null,
       running: false,
@@ -59,23 +59,37 @@ var{
       </Text>
     </TouchableHighlight>
   },
+
   lapButton: function() {
+
+    var style = this.state.running ? styles.LapButton : styles.resetButton;
+
     return <TouchableHighlight
     underlayColor="grey"
     onPress = {this.HandleLapPress}
-    style={styles.button}
+    style={[styles.button,style]}
     >
-      <Text>Lap</Text>
+      <Text>
+      {this.state.running ? 'Lap':'Reset'}
+      </Text>
     </TouchableHighlight>
   },
 
   HandleLapPress: function() {
     var lap = this.state.timeElapsed;
-
-    this.setState({
-      startTime: new Date(),
-      laps: this.state.laps.concat([lap])
-    });
+      if (this.state.running == true) {
+        this.setState({
+        startTime: new Date(),
+        laps: this.state.laps.concat([lap])
+      });
+    } else {
+      this.setState({
+      timeElapsed: null,
+      running: false,
+      startTime: null,
+      laps:[]
+      });
+    }
   },
 
   handleStartPress: function() {
@@ -129,7 +143,8 @@ var{
     alignItems: 'center',
    },
    timer: {
-    fontSize: 60,
+    fontSize: 80,
+    fontWeight: '100',
    },
    button: {
     borderWidth: 1,
@@ -146,13 +161,17 @@ var{
    stopButton: {
     borderColor: '#cc0000',
    },
+   resetButton: {
+    borderColor: '#cccccc',
+   },
    lap: {
     justifyContent: 'space-around',
     flexDirection: 'row',
    },
    lapText: {
-    fontSize: 16,
-    lineHeight: 30
+    fontSize: 24,
+    lineHeight: 40,
+    fontWeight: '200'
    },
  });
 
