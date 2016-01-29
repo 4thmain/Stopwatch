@@ -21,17 +21,17 @@ var{
 
    render: function() {
     return <View style={styles.container}>
-        <View style={[styles.header,this.border('red')]}>
-          <View style={[this.border('yellow'),styles.timerWrapper]}>
+        <View style={[styles.header,this.border('white')]}>
+          <View style={[this.border('white'),styles.timerWrapper]}>
             <Text style={styles.timer}>{FormatTime(this.state.timeElapsed)}</Text>
           </View>
-          <View style={[this.border('blue'),styles.buttonWrapper]}>
+          <View style={[this.border('white'),styles.buttonWrapper]}>
             {this.startStopButton()}
             {this.lapButton()}
           </View>
         </View>
 
-      <View style={[styles.footer,this.border('green')]}>
+      <View style={[styles.footer,this.border('#dee1e2')]}>
           {this.laps()}
       </View>
     </View>
@@ -50,11 +50,11 @@ var{
     var style = this.state.running ? styles.stopButton : styles.startButton;
 
     return <TouchableHighlight
-    underlayColor="#00CC00"
+    underlayColor='#6AB9B8'
     onPress = {this.handleStartPress}
     style = {[styles.button,style]}
     >
-      <Text>
+      <Text style = {{color:'white'}}>
       {this.state.running ? 'Stop':'Start'}
       </Text>
     </TouchableHighlight>
@@ -65,7 +65,7 @@ var{
     var style = this.state.running ? styles.LapButton : styles.resetButton;
 
     return <TouchableHighlight
-    underlayColor="grey"
+    underlayColor='#a6bdc7'
     onPress = {this.HandleLapPress}
     style={[styles.button,style]}
     >
@@ -157,13 +157,19 @@ var{
     alignItems: 'center',
    },
    startButton: {
-    borderColor: '#00CC00',
+    borderColor: '#54C7C3',
+    backgroundColor: '#54C7C3',
    },
    stopButton: {
-    borderColor: '#cc0000',
+    borderColor: '#CB5D54',
+    backgroundColor: 'CB5D54'
    },
    resetButton: {
     borderColor: '#cccccc',
+   },
+   LapButton: {
+    borderColor: '#a6bdc7',
+    backgroundColor: '#a6bdc7'
    },
    lap: {
     justifyContent: 'space-around',
