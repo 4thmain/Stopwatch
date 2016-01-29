@@ -150,9 +150,9 @@ var{
    button: {
     borderWidth: 1,
     borderColor: 'grey',
-    height: 40,
-    width: 110,
-    borderRadius: 4,
+    height: 100,
+    width: 100,
+    borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
    },
