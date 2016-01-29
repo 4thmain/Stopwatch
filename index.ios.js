@@ -21,17 +21,17 @@ var{
 
    render: function() {
     return <View style={styles.container}>
-        <View style={[styles.header,this.border('white')]}>
-          <View style={[this.border('white'),styles.timerWrapper]}>
+        <View style={[styles.header,this.border('red')]}>
+          <View style={[this.border('yellow'),styles.timerWrapper]}>
             <Text style={styles.timer}>{FormatTime(this.state.timeElapsed)}</Text>
           </View>
-          <View style={[this.border('white'),styles.buttonWrapper]}>
+          <View style={[this.border('blue'),styles.buttonWrapper]}>
             {this.startStopButton()}
             {this.lapButton()}
           </View>
         </View>
 
-      <View style={[styles.footer,this.border('white')]}>
+      <View style={[styles.footer,this.border('green')]}>
           {this.laps()}
       </View>
     </View>
@@ -50,11 +50,11 @@ var{
     var style = this.state.running ? styles.stopButton : styles.startButton;
 
     return <TouchableHighlight
-    underlayColor='#6AB9B8'
+    underlayColor="#00CC00"
     onPress = {this.handleStartPress}
     style = {[styles.button,style]}
     >
-      <Text style = {{color:'white'}}>
+      <Text>
       {this.state.running ? 'Stop':'Start'}
       </Text>
     </TouchableHighlight>
@@ -65,7 +65,7 @@ var{
     var style = this.state.running ? styles.LapButton : styles.resetButton;
 
     return <TouchableHighlight
-    underlayColor='#a6bdc7'
+    underlayColor="grey"
     onPress = {this.HandleLapPress}
     style={[styles.button,style]}
     >
@@ -123,6 +123,7 @@ var{
  var styles = StyleSheet.create({
    container: {
      flex: 1,
+
      alignItems: 'stretch',
    },
    header: {
@@ -156,19 +157,13 @@ var{
     alignItems: 'center',
    },
    startButton: {
-    borderColor: '#54C7C3',
-    backgroundColor: '#54C7C3',
+    borderColor: '#00CC00',
    },
    stopButton: {
-    borderColor: '#CB5D54',
-    backgroundColor: 'CB5D54'
+    borderColor: '#cc0000',
    },
    resetButton: {
     borderColor: '#cccccc',
-   },
-   LapButton: {
-    borderColor: '#a6bdc7',
-    backgroundColor: '#a6bdc7'
    },
    lap: {
     justifyContent: 'space-around',
